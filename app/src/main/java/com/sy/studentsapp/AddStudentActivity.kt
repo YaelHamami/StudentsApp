@@ -3,6 +3,7 @@ package com.sy.studentsapp
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -30,6 +31,7 @@ class AddStudentActivity : AppCompatActivity() {
         val phoneEditText: EditText = findViewById(R.id.add_student_activity_phone_edit_text)
         val addressEditText: EditText = findViewById(R.id.add_student_activity_address_edit_text)
 
+        val CheckedCheckbox: CheckBox = findViewById(R.id.add_student_activity_checked_check_box)
 
         val savedMessageTextView: TextView = findViewById(R.id.add_student_activity_saved_message_text_view)
 
@@ -38,7 +40,7 @@ class AddStudentActivity : AppCompatActivity() {
         }
 
         saveButton.setOnClickListener{
-            savedMessageTextView.text = "name: ${nameEditText.text} id: ${idEditText.text} address: ${addressEditText.text}  phone: ${phoneEditText.text} is saved!"
+            savedMessageTextView.text = "name: ${nameEditText.text} id: ${idEditText.text} address: ${addressEditText.text}  phone: ${phoneEditText.text} checked: ${CheckedCheckbox.text} is saved!"
         }
     }
 }
