@@ -10,8 +10,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.sy.studentsapp.model.Model
+import com.sy.studentsapp.model.Student
 
 class AddStudentActivity : AppCompatActivity() {
+    private var students: List<Student>? = null
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +35,7 @@ class AddStudentActivity : AppCompatActivity() {
         val phoneEditText: EditText = findViewById(R.id.add_student_activity_phone_edit_text)
         val addressEditText: EditText = findViewById(R.id.add_student_activity_address_edit_text)
 
-        val CheckedCheckbox: CheckBox = findViewById(R.id.add_student_activity_checked_check_box)
+        val checkedCheckbox: CheckBox = findViewById(R.id.add_student_activity_checked_check_box)
 
         val savedMessageTextView: TextView = findViewById(R.id.add_student_activity_saved_message_text_view)
 
@@ -40,7 +44,22 @@ class AddStudentActivity : AppCompatActivity() {
         }
 
         saveButton.setOnClickListener{
-            savedMessageTextView.text = "name: ${nameEditText.text} id: ${idEditText.text} address: ${addressEditText.text}  phone: ${phoneEditText.text} checked: ${CheckedCheckbox.text} is saved!"
+            //savedMessageTextView.text = "name: ${nameEditText.text} id: ${idEditText.text} address: ${addressEditText.text}  phone: ${phoneEditText.text} checked: ${checkedCheckbox.text} is saved!"
+            savedMessageTextView.text = "name: ${students?.get(1)?.name} id: ${students?.get(1)?.id} address: ${students?.get(1)?.address}  phone: ?? checked: ${students?.get(1)?.isChecked} is saved!"
+            val student = Student(
+                id = idEditText?.text?.toString() ?: "",
+                name = nameEditText?.text?.toString() ?: "",
+                address = addressEditText?.text?.toString() ?: "",
+                isChecked = false
+            )
+
+            Model.shared.add(student) {
+                //finish() //change with navigationController(view).popbackstack()
+            }
+        }
+
+        Model.shared.getAllStudents {
+            this.students = it
         }
     }
 }
