@@ -22,8 +22,8 @@
 
     <ImageView
         android:id="@+id/add_student_activity_avatar_image_view"
-        android:layout_width="312dp"
-        android:layout_height="201dp"
+        android:layout_width="320dp"
+        android:layout_height="210dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

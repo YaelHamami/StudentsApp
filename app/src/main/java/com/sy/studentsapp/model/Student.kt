@@ -8,5 +8,6 @@ data class Student(
     @PrimaryKey val id: String,
     val name: String,
     val address: String,
+    val phone: String,
     var isChecked: Boolean
 )

@@ -35,9 +35,12 @@ class MainActivity : AppCompatActivity() {
 
         // Example static student data
         studentsList.add(Student(
-            id = "S1", name = "John Doe", isChecked = true, address = "TLV"
+            id = "S1", name = "John Doe", isChecked = true, address = "TLV",
+            phone = "0808"
         ))
-        studentsList.add(Student(id = "S2", name = "Jane Smith", isChecked = true, address = "RMG"
+        studentsList.add(Student(
+            id = "S2", name = "Jane Smith", isChecked = true, address = "RMG",
+            phone = "090909"
         ))
 
         // Initialize the adapter and set it to the RecyclerView
@@ -45,6 +48,11 @@ class MainActivity : AppCompatActivity() {
             openStudentDetails(student)
         }
         recyclerView.adapter = studentsAdapter
+
+        // Add New Student button
+        //val addButton: Button = findViewById(R.id.addStudentButton)
+        //addButton.setOnClickListener {
+        //    openAddNewStudent()
 
         val addStudentButton: Button = findViewById(R.id.main_activity_add_student_button)
         addStudentButton.setOnClickListener{
