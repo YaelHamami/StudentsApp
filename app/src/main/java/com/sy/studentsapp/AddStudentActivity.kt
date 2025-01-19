@@ -27,8 +27,8 @@ class AddStudentActivity : AppCompatActivity() {
             insets
         }
 
-        val saveButton: Button = findViewById(R.id.add_student_activity_save_button)
-        val cancelButton: Button = findViewById(R.id.add_student_activity_cancel_button)
+        val saveButton: Button = findViewById(R.id.save_button)
+        val cancelButton: Button = findViewById(R.id.cancel_button)
 
         val nameEditText: EditText = findViewById(R.id.add_student_activity_name_edit_text)
         val idEditText: EditText = findViewById(R.id.add_student_activity_id_edit_text)
@@ -37,24 +37,21 @@ class AddStudentActivity : AppCompatActivity() {
 
         val checkedCheckbox: CheckBox = findViewById(R.id.add_student_activity_checked_check_box)
 
-        val savedMessageTextView: TextView = findViewById(R.id.add_student_activity_saved_message_text_view)
-
         cancelButton.setOnClickListener{
             finish()
         }
 
         saveButton.setOnClickListener{
-            //savedMessageTextView.text = "name: ${nameEditText.text} id: ${idEditText.text} address: ${addressEditText.text}  phone: ${phoneEditText.text} checked: ${checkedCheckbox.text} is saved!"
-            savedMessageTextView.text = "name: ${students?.get(1)?.name} id: ${students?.get(1)?.id} address: ${students?.get(1)?.address}  phone: ?? checked: ${students?.get(1)?.isChecked} is saved!"
             val student = Student(
                 id = idEditText?.text?.toString() ?: "",
                 name = nameEditText?.text?.toString() ?: "",
                 address = addressEditText?.text?.toString() ?: "",
-                isChecked = false
+                phone = phoneEditText?.text?.toString() ?: "",
+                isChecked = checkedCheckbox?.isChecked ?: false
             )
 
             Model.shared.add(student) {
-                //finish() //change with navigationController(view).popbackstack()
+                finish()
             }
         }
 

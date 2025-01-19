@@ -2,32 +2,22 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/details_view"
+    android:id="@+id/edit_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/selectableItemBackground">
-
-    <!-- Back Button -->
-    <ImageButton
-        android:id="@+id/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:src="@android:drawable/ic_menu_revert"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
 
     <!-- Title "Student Details" -->
     <TextView
         android:id="@+id/title_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Student Details"
+        android:text="Edit Student Details"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
-        app:layout_constraintTop_toBottomOf="@+id/back_button"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -70,9 +60,9 @@
                 android:text="Student Name: "
                 android:textStyle="bold"
                 android:layout_marginEnd="8dp" />
-            <TextView
+            <EditText
                 android:id="@+id/student_row_name_value_text_view"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="" />
         </LinearLayout>
@@ -92,9 +82,9 @@
                 android:text="Student ID: "
                 android:textStyle="bold"
                 android:layout_marginEnd="8dp" />
-            <TextView
+            <EditText
                 android:id="@+id/student_row_id_value_text_view"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="" />
         </LinearLayout>
@@ -114,9 +104,9 @@
                 android:text="Phone: "
                 android:textStyle="bold"
                 android:layout_marginEnd="8dp" />
-            <TextView
+            <EditText
                 android:id="@+id/student_row_phone_value_text_view"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="" />
         </LinearLayout>
@@ -136,9 +126,9 @@
                 android:text="Address: "
                 android:textStyle="bold"
                 android:layout_marginEnd="8dp" />
-            <TextView
+            <EditText
                 android:id="@+id/student_row_address_value_text_view"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="" />
         </LinearLayout>
@@ -161,7 +151,6 @@
             <CheckBox
                 android:id="@+id/student_row_check_box_value"
                 android:layout_width="wrap_content"
-                android:enabled="false"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
@@ -169,11 +158,29 @@
 
     <!-- Edit Button, positioned at the bottom-right of the screen -->
     <Button
-        android:id="@+id/edit_button"
+        android:id="@+id/cancel_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit"
+        android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+    <!-- Edit Button, positioned at the bottom-right of the screen -->
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <!-- Edit Button, positioned at the bottom-right of the screen -->
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
