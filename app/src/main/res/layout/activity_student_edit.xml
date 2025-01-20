@@ -162,6 +162,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancel"
+        android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
     <!-- Edit Button, positioned at the bottom-right of the screen -->
@@ -170,6 +171,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Delete"
+        android:layout_margin="8dp"
         android:layout_centerHorizontal="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -180,6 +182,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
+        android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
