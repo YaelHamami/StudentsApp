@@ -11,6 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.sy.studentsapp.databinding.ActivityStudentDetailsBinding
 import com.sy.studentsapp.model.Student
 
 class StudentDetailsActivity : AppCompatActivity() {
@@ -31,13 +32,19 @@ class StudentDetailsActivity : AppCompatActivity() {
             }
         }
 
+    private lateinit var binding: ActivityStudentDetailsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Initialize View Binding
+        binding = ActivityStudentDetailsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         enableEdgeToEdge()
-        setContentView(R.layout.activity_student_details)
 
         // Set up the window insets listener
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.details_view)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(binding.detailsView) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -52,29 +59,20 @@ class StudentDetailsActivity : AppCompatActivity() {
 
     // Method to update the UI with the updated student data and reassign listeners
     private fun updateStudentDetails(student: Student) {
-        // Initialize the UI elements
-        val nameText: TextView = findViewById(R.id.student_row_name_value_text_view)
-        val idText: TextView = findViewById(R.id.student_row_id_value_text_view)
-        val phoneText: TextView = findViewById(R.id.student_row_phone_value_text_view)
-        val addressText: TextView = findViewById(R.id.student_row_address_value_text_view)
-        val checkBox: CheckBox = findViewById(R.id.student_row_check_box_value)
-        val backButton: ImageButton = findViewById(R.id.back_button)
-        val editButton: Button = findViewById(R.id.edit_button)
-
         // Update the UI with the new student data
-        nameText.text = student.name
-        idText.text = student.id.toString()
-        phoneText.text = student.phone
-        addressText.text = student.address
-        checkBox.isChecked = student.isChecked
+        binding.nameTextView.text = student.name
+        binding.idTextView.text = student.id.toString()
+        binding.phoneTextView.text = student.phone
+        binding.addressTextView.text = student.address
+        binding.checkBox.isChecked = student.isChecked
 
         // Set the back button action
-        backButton.setOnClickListener {
+        binding.backButton.setOnClickListener {
             finish()  // Finish the activity and go back
         }
 
         // Set the edit button action
-        editButton.setOnClickListener {
+        binding.editButton.setOnClickListener {
             val intent = Intent(this, StudentEditActivity::class.java)
             intent.putExtra("student", student)  // Pass the entire student object
             studentEditResultLauncher.launch(intent)
