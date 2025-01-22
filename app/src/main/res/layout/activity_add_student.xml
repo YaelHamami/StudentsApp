@@ -7,172 +7,148 @@
     android:layout_height="match_parent"
     tools:context=".AddStudentActivity">
 
-    <!-- Title "Student Details" -->
-    <TextView
-        android:id="@+id/title_text_view"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Add a new Student"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <!-- Student's Image -->
-    <ImageView
-        android:id="@+id/add_student_activity_avatar_image_view"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"
-        app:layout_constraintTop_toBottomOf="@+id/title_text_view"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/saveButton" />
+
+    <ImageView
+        android:id="@+id/avatarImageView"
+        android:layout_width="312dp"
+        android:layout_height="201dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/sheep" />
 
-    <!-- Student Details Section with horizontal LinearLayout for label-value pairs -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="16dp"
-        android:layout_below="@+id/add_student_activity_avatar_image_view"
-        app:layout_constraintTop_toBottomOf="@+id/add_student_activity_avatar_image_view"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/name"
+        app:layout_constraintEnd_toStartOf="@+id/nameEditText"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/avatarImageView" />
+
+    <TextView
+        android:id="@+id/idTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/id"
+        app:layout_constraintEnd_toStartOf="@+id/idEditText"
+        app:layout_constraintStart_toStartOf="@+id/nameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintBaseline_toBaselineOf="@+id/nameTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        >
+        app:layout_constraintStart_toEndOf="@+id/nameTextView" />
 
-        <!-- Student Name Row -->
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="32dp"
-            android:paddingEnd="16dp"
-            android:layout_marginTop="8dp">
-            <TextView
-                android:id="@+id/add_student_activity_name_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Student Name: "
-                android:textStyle="bold"
-                android:layout_marginEnd="8dp" />
-            <EditText
-                android:id="@+id/add_student_activity_name_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-        </LinearLayout>
-
-        <!-- Student ID Row -->
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="32dp"
-            android:paddingEnd="16dp"
-            android:layout_marginTop="8dp">
-            <TextView
-                android:id="@+id/add_student_activity_id_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Student ID: "
-                android:textStyle="bold"
-                android:layout_marginEnd="8dp" />
-            <EditText
-                android:id="@+id/add_student_activity_id_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-        </LinearLayout>
-
-        <!-- Student Phone Row -->
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="32dp"
-            android:paddingEnd="16dp"
-            android:layout_marginTop="8dp">
-            <TextView
-                android:id="@+id/add_student_activity_phone_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Phone: "
-                android:textStyle="bold"
-                android:layout_marginEnd="8dp" />
-            <EditText
-                android:id="@+id/add_student_activity_phone_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-        </LinearLayout>
-
-        <!-- Student Address Row -->
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="32dp"
-            android:paddingEnd="16dp"
-            android:layout_marginTop="8dp">
-            <TextView
-                android:id="@+id/add_student_activity_address_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Address: "
-                android:textStyle="bold"
-                android:layout_marginEnd="8dp" />
-            <EditText
-                android:id="@+id/add_student_activity_address_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-        </LinearLayout>
-
-        <!-- Checkbox Row -->
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="32dp"
-            android:paddingEnd="16dp"
-            android:layout_marginTop="8dp">
-            <TextView
-                android:id="@+id/student_row_check_box_label_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="isChecked: "
-                android:textStyle="bold"
-                android:layout_marginEnd="8dp" />
-            <CheckBox
-                android:id="@+id/add_student_activity_checked_check_box"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-    </LinearLayout>
+    <EditText
+        android:id="@+id/idEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintBaseline_toBaselineOf="@+id/idTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/idTextView" />
 
     <Button
-        android:id="@+id/cancel_button"
-        android:layout_width="wrap_content"
+        android:id="@+id/saveButton"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Cancel"
-        android:layout_margin="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/save_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save"
-        android:layout_margin="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/save"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cancelButton"
+        app:layout_constraintEnd_toStartOf="@+id/cancelButton"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/add_student_activity_saved_message_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/saveButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/phoneTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/phone"
+        app:layout_constraintEnd_toStartOf="@+id/phoneEditText"
+        app:layout_constraintStart_toStartOf="@+id/idTextView"
+        app:layout_constraintTop_toBottomOf="@+id/idTextView" />
+
+    <TextView
+        android:id="@+id/addressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/address"
+        app:layout_constraintEnd_toStartOf="@+id/addressEditText"
+        app:layout_constraintStart_toStartOf="@+id/phoneTextView"
+        app:layout_constraintTop_toBottomOf="@+id/phoneTextView" />
+
+    <EditText
+        android:id="@+id/addressEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintBaseline_toBaselineOf="@+id/addressTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addressTextView" />
+
+    <EditText
+        android:id="@+id/phoneEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="phone"
+        app:layout_constraintBaseline_toBaselineOf="@+id/phoneTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/phoneTextView" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="91dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="16dp"
+        android:text="Checked"
+        app:layout_constraintStart_toStartOf="@+id/addressTextView"
+        app:layout_constraintTop_toBottomOf="@+id/addressTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
