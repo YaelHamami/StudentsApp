@@ -2,6 +2,7 @@ package com.sy.studentsapp
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -47,7 +48,9 @@ class AddStudentActivity : AppCompatActivity() {
                 isChecked = binding.checkBox.isChecked
             )
 
+            binding?.progressBar?.visibility = View.VISIBLE
             Model.shared.add(student) {
+                binding?.progressBar?.visibility = View.GONE
                 finish()
             }
         }
