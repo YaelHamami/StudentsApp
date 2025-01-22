@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -35,17 +36,6 @@ class StudentEditActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        // Find the UI elements
-//        val cancelButton: Button = findViewById(R.id.cancel_button)
-//        val deleteButton: Button = findViewById(R.id.delete_button)
-//        val saveButton: Button = findViewById(R.id.save_button)
-//
-//        val nameText: EditText = findViewById(R.id.student_row_name_value_text_view)
-//        val idText: EditText = findViewById(R.id.student_row_id_value_text_view)
-//        val phoneText: EditText = findViewById(R.id.student_row_phone_value_text_view)
-//        val addressText: EditText = findViewById(R.id.student_row_address_value_text_view)
-//        val checkBox: CheckBox = findViewById(R.id.student_row_check_box_value)
 
         // Retrieve the Student object passed from the previous activity
         val student: Student? = intent.getSerializableExtra("student") as? Student
@@ -90,6 +80,8 @@ class StudentEditActivity : AppCompatActivity() {
                 )
 
                 if (oldStudent.id != updatedStudent.id) {
+                    binding.progressBar.visibility = View.VISIBLE
+
                     // ID has changed, delete the old record and insert the new one
                     Model.shared.delete(oldStudent) {
                         Model.shared.add(updatedStudent) {
@@ -99,8 +91,12 @@ class StudentEditActivity : AppCompatActivity() {
                             setResult(RESULT_OK, resultIntent)
                             finish() // Finish the activity after saving the changes
                         }
+
+                        binding.progressBar.visibility = View.GONE
                     }
                 } else {
+                    binding.progressBar.visibility = View.VISIBLE
+
                     // ID has not changed, just update the record
                     Model.shared.edit(updatedStudent) {
                         // Send updated student back to the details activity
@@ -108,6 +104,8 @@ class StudentEditActivity : AppCompatActivity() {
                         resultIntent.putExtra("updatedStudent", updatedStudent)
                         setResult(RESULT_OK, resultIntent)
                         finish() // Finish the activity after saving the changes
+
+                        binding.progressBar.visibility = View.GONE
                     }
                 }
             }
