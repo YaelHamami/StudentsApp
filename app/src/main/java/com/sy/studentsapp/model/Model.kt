@@ -16,7 +16,6 @@ typealias EmptyCallback = () -> Unit
 //}
 // for single instance so it can be accessed only from the shared val below
 class Model private constructor() {
-    val students: MutableList<Student> = ArrayList()
     private val database: AppLocalDbRepository = AppLocalDb.database
     private val executor = Executors.newSingleThreadExecutor() // side thread
     private val mainHandler = HandlerCompat.createAsync(Looper.getMainLooper()) // main thread
@@ -28,7 +27,7 @@ class Model private constructor() {
 
     fun getAllStudents(callback: StudentsCallback) {
         executor.execute{
-            val students = database.studentDao().getAllStudents()
+            val students = database.studentDao().getAllStudents().toMutableList()
             mainHandler.post {
                 callback(students)
             }
@@ -39,6 +38,26 @@ class Model private constructor() {
         executor.execute{
             database.studentDao().insertStudents(student)
             Log.d("TAG", "Save student $student")
+            mainHandler.post {
+                callback()
+            }
+        }
+    }
+
+    fun edit(student: Student, callback: EmptyCallback) {
+        executor.execute {
+            database.studentDao().updateStudent(student)
+            Log.d("TAG", "Updated student $student")
+            mainHandler.post {
+                callback()
+            }
+        }
+    }
+
+    fun delete(student: Student, callback: EmptyCallback) {
+        executor.execute {
+            database.studentDao().deleteStudent(student)
+            Log.d("TAG", "Deleted student $student")
             mainHandler.post {
                 callback()
             }

@@ -16,7 +16,7 @@ class StudentsAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.student_list_item, parent, false)
+            .inflate(R.layout.student_list_row, parent, false)
         return StudentViewHolder(view)
     }
 
@@ -28,9 +28,9 @@ class StudentsAdapter(
     override fun getItemCount(): Int = students.size
 
     inner class StudentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val studentName: TextView = itemView.findViewById(R.id.studentName)
-        private val studentId: TextView = itemView.findViewById(R.id.studentId)
-        private val checkBox: CheckBox = itemView.findViewById(R.id.studentCheckbox)
+        private val studentName: TextView = itemView.findViewById(R.id.student_row_name_text_view)
+        private val studentId: TextView = itemView.findViewById(R.id.student_row_id_text_view)
+        private val checkBox: CheckBox = itemView.findViewById(R.id.student_row_check_box)
 
         fun bind(student: Student) {
             studentName.text = student.name

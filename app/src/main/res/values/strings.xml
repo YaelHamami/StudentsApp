@@ -1,10 +1,23 @@
 <resources>
     <string name="app_name">StudentsApp</string>
-    <string name="phone">phone</string>
-    <string name="save">save</string>
-    <string name="id">id</string>
+    <string name="phone">Phone</string>
+    <string name="save">Save</string>
+    <string name="id">Id</string>
     <string name="name">Name</string>
-    <string name="cancel">cancel</string>
-    <string name="address">address</string>
+    <string name="cancel">Cancel</string>
+    <string name="address">Address</string>
     <string name="add">+</string>
+    <string name="students_list_title">Students List</string>
+    <string name="student_details_title">Student Details</string>
+    <string name="student_id_label">Student ID:</string>
+    <string name="student_name_label">Student Name:</string>
+    <string name="edit">Edit</string>
+    <string name="is_checked_heading">Is Checked:</string>
+    <string name="address_heading">Address:</string>
+    <string name="phone_heading">Phone:</string>
+    <string name="delete">Delete</string>
+    <string name="edit_student_details_title">Edit Student Details</string>
+    <string name="add_student_title">New Student</string>
+    <string name="checked">Checked</string>
+
 </resources>
