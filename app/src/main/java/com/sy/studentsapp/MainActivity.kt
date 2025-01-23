@@ -50,7 +50,6 @@ class MainActivity : AppCompatActivity() {
 
         // Fetch students from the model
         Model.shared.getAllStudents { students ->
-            Log.d("StudentsList", "Students: $students")
             studentsList.clear()
             studentsList.addAll(students)
 
@@ -80,11 +79,9 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         // Refresh the list after returning to this screen
         Model.shared.getAllStudents { students ->
-            Log.d("MainActivity1", "Fetched students: $students")
             studentsList.clear()
             studentsList.addAll(students)
             studentsAdapter.notifyDataSetChanged()
-            Log.d("MainActivity2", "Length after update: ${studentsAdapter.itemCount}")
 
         }
     }

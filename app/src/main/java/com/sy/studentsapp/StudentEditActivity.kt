@@ -42,7 +42,6 @@ class StudentEditActivity : AppCompatActivity() {
 
         // Check if student data is available and update the UI accordingly
         student?.let {
-            Log.d("StudentEditActivity", "Populating fields with: $it")
             binding.nameEditText.setText(it.name)
             binding.idEditText.setText(it.id)
             binding.phoneEditText.setText(it.phone)
